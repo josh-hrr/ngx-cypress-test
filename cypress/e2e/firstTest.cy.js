@@ -51,6 +51,8 @@ describe('Support page', () => {
 
                 cy.wrap(secondForm).find('[for="exampleInputPassword1"]').should('contain', 'Password')
             })
+
+            //testing new branch
         })    
     })    
 })
