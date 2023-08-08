@@ -38,5 +38,19 @@ describe('Support page', () => {
             .parents('form')
             .find('nb-checkbox')
             .click() 
-    })
+
+        cy.contains('nb-card', 'Using the Grid').then( firstForm => {
+            const emailLabelFirst = firstForm.find('[for="inputEmail1"').text()
+            const passwordLabelFirst = firstForm.find('[for="inputPassword2"').text()
+            expect(emailLabelFirst).to.equal('Email')
+            expect(passwordLabelFirst).to.equal('Password')
+
+            cy.contains('nb-card', 'Basic form').then( secondForm => {
+                const passwordSecondText = secondForm.find('[for="exampleInputPassword1"]').text()
+                expect(passwordLabelFirst).to.equal(passwordSecondText)
+
+                cy.wrap(secondForm).find('[for="exampleInputPassword1"]').should('contain', 'Password')
+            })
+        })    
+    })    
 })
