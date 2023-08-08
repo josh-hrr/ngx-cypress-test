@@ -40,8 +40,8 @@ describe('Support page', () => {
             .click() 
 
         cy.contains('nb-card', 'Using the Grid').then( firstForm => {
-            const emailLabelFirst = firstForm.find('[for="inputEmail1"').text()
-            const passwordLabelFirst = firstForm.find('[for="inputPassword2"').text()
+            const emailLabelFirst = firstForm.find('[for="inputEmail1"]').text()
+            const passwordLabelFirst = firstForm.find('[for="inputPassword2"]').text()
             expect(emailLabelFirst).to.equal('Email')
             expect(passwordLabelFirst).to.equal('Password')
 
