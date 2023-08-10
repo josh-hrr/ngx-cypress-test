@@ -7,6 +7,7 @@ describe('Support page', () => {
         cy.contains('Forms').click();
         cy.contains('Form Layouts').click();
 
+//selectors
         //by Tag Name
         cy.get('input').wait(500);
 
@@ -53,6 +54,20 @@ describe('Support page', () => {
             })
 
             //testing new branch
-        })    
+            
+             
+            //assertions 
+            cy.get('input[type="radio"]').should('have.length', 3);
+            cy.get('input[type="radio"]').eq(2).should('have.class', 'disabled');
+
+            //invoke 
+            cy.get('.created-by').find('a').invoke('removeAttr', 'target')    
+            cy.get('.created-by').find('a').click(); 
+        }) 
     })    
+
+    
 })
+
+//npm start
+//npx cypress open
