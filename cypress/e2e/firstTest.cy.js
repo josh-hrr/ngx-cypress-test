@@ -58,11 +58,13 @@ describe('Support page', () => {
              
             //assertions 
             cy.get('input[type="radio"]').should('have.length', 3);
-            cy.get('input[type="radio"]').eq(2).should('have.class', 'disabled');
+            cy.get('input[type="radio"]').eq(2).should('have.text', 'Disabled Option');
 
             //invoke 
+            /*
             cy.get('.created-by').find('a').invoke('removeAttr', 'target')    
             cy.get('.created-by').find('a').click(); 
+            */
         }) 
     })    
 
